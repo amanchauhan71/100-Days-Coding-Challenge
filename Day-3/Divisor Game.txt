@@ -1,0 +1,64 @@
+1025. Divisor Game
+
+Alice and Bob take turns playing a game, with Alice starting first.
+
+Initially, there is a number N on the chalkboard.  On each player's turn, that player makes a move consisting of:
+
+Choosing any x with 0 < x < N and N % x == 0.
+Replacing the number N on the chalkboard with N - x.
+Also, if a player cannot make a move, they lose the game.
+
+Return True if and only if Alice wins the game, assuming both players play optimally.
+
+ 
+
+Example 1:
+
+Input: 2
+Output: true
+Explanation: Alice chooses 1, and Bob has no more moves.
+
+
+class Solution {
+    public boolean divisorGame(int N) {
+        
+        int bob=0,ali=0,count=2,temp=0;;
+        int num=N;
+        
+        if(num==1)
+            return false;
+        while(num>=1){
+            
+            temp++;
+            if(num % count==0){
+                num=num-count;
+                count=2;
+            }
+            
+            if(temp%2==0){
+                bob=1;
+                ali=0;
+            }
+            else{
+                bob=0;
+                ali=1;
+            }
+            
+            if(num==2){
+                num=num-1;
+                if(bob==1)
+                    return false;
+                else
+                    return true;
+            }
+            count++;
+        }
+        
+        if(ali==1)
+            return true;
+        
+        else 
+            return false;
+        
+    }
+}
