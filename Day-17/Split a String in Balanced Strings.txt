@@ -1,0 +1,57 @@
+1221. Split a String in Balanced Strings
+
+
+Balanced strings are those who have equal quantity of 'L' and 'R' characters.
+
+Given a balanced string s split it in the maximum amount of balanced strings.
+
+Return the maximum amount of splitted balanced strings.
+
+ 
+
+Example 1:
+
+Input: s = "RLRRLLRLRL"
+Output: 4
+Explanation: s can be split into "RL", "RRLL", "RL", "RL", each substring contains same number of 'L' and 'R'.
+
+
+
+
+
+class Solution {
+    public int balancedStringSplit(String s) {
+        int R=0,L=0,count=0;
+        char[] ch = s.toCharArray();
+        
+         for (char c : ch) { 
+            if(c=='R'){
+               // System.out.println(c);
+                R++;
+                if(R==L){
+                 
+                 count++;
+                 // System.out.println(count);
+                 R=0;
+                 L=0;
+             }
+            } 
+             else if(c=='L'){
+                  // System.out.println(c);
+                 L++;
+                 if(R==L){
+                 
+                 count++;
+                 // System.out.println(count);
+                 R=0;
+                 L=0;
+             }
+                 
+             }
+             
+            
+        }
+        
+        return count;
+    }
+}
