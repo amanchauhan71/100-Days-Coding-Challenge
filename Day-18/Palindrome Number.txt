@@ -1,0 +1,34 @@
+9. Palindrome Number
+
+
+Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+
+Example 1:
+
+Input: 121
+Output: true
+
+
+
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        
+        if(x<=-1)
+            return false;
+        int n=x,rem,sum=0;
+        
+        while(n!=0){
+            
+            rem=n%10;
+            
+            sum=sum*10+rem;
+            
+            n=n/10;
+        }
+        
+        if(sum==x)
+            return true;
+        return false;
+    }
+}
