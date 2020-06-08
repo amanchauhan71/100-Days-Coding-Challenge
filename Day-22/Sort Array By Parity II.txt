@@ -1,0 +1,49 @@
+922. Sort Array By Parity II
+
+
+Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
+
+Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even, i is even.
+
+You may return any answer array that satisfies this condition.
+
+
+
+
+
+class Solution {
+    public int[] sortArrayByParityII(int[] A) {
+        
+        List<Integer> arr=new ArrayList<Integer>();
+        List<Integer> arr1=new ArrayList<Integer>();
+        
+        for(int i : A){
+            
+            if(i%2==0)
+                arr.add(i);
+            
+            else
+                arr1.add(i);
+        }
+        
+        int ptr=0,ctr=0;
+        for(int i=0;i<A.length;i++){
+            
+            if(i%2!=0){
+                
+                A[i]=arr1.get(ptr);
+                ptr++;
+            }
+            
+            else{
+                A[i]=arr.get(ctr);
+                ctr++;
+            }
+            
+            
+        }
+        
+        return A;
+        
+    }
+}
