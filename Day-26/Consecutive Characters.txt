@@ -1,0 +1,55 @@
+1446. Consecutive Characters
+
+
+Given a string s, the power of the string is the maximum length of a non-empty substring that contains only one unique character.
+
+Return the power of the string.
+
+ 
+
+Example 1:
+
+Input: s = "leetcode"
+Output: 2
+Explanation: The substring "ee" is of length 2 with the character 'e' only.
+
+
+
+class Solution {
+    public int maxPower(String s) {
+
+     int max_value=-1,count=0;
+        
+        char[] ch = s.toCharArray();
+       
+        for(int i=0 ; i<ch.length-1;i++){
+            
+            if(ch[i]==ch[i+1]){
+                
+                count++;
+              
+               
+                
+            }
+            
+            else if(count>=max_value)
+            {
+                max_value=count;
+                 
+               
+                count=0;
+              
+            }
+            else
+                count=0;
+        }
+        
+        if(count>=max_value)
+            {
+                max_value=count;
+               
+              
+            }
+       return max_value+1;
+    }
+}
