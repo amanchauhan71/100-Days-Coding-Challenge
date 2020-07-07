@@ -1,0 +1,51 @@
+1232. Check If It Is a Straight Line
+
+
+ 
+
+Example 1:
+
+
+
+Input: coordinates = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
+Output: true
+
+
+
+
+class Solution {
+    public boolean checkStraightLine(int[][] coords) {
+      if (coords.length <= 1)
+			return true;
+
+		// if x run is zero then yes
+		// if y rise is zero then yes
+		// if slop is same then yes
+
+		for (int i = 2; i < coords.length; i++) {
+
+			double x1 = coords[i - 2][0];
+			double x2 = coords[i - 1][0];
+			double x3 = coords[i][0];
+			double y1 = coords[i - 2][1];
+			double y2 = coords[i - 1][1];
+			double y3 = coords[i][1];
+
+			double prvrun =  x2 - x1;
+			double run =  x3 - x2;
+			double prvrise = y2 - y1;
+			double rise =y3 - y2;
+
+			
+
+			if (run==0 &&  prvrun == 0 || rise ==0 && prvrise==0 ) {
+				continue;
+			} else if ((prvrise / prvrun) != (rise / run)) {
+				return false;
+			}
+
+		}
+
+		return true;
+    }
+}
